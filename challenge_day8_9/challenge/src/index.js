@@ -5,7 +5,7 @@ const fnList = document.querySelector(".fnList");
 let LSPList = [];
 let LSFList = [];
 
-function backToDo() {
+function backToDo(event) {
   const btn = event.target;
   const li = btn.parentNode;
   const content = li.firstElementChild.innerText;
@@ -66,16 +66,16 @@ function paintPending(text) {
   const span = document.createElement("span");
   const newId = "P" + (LSPList.length + 1);
 
-  delBtn.innerText = "x";
+  delBtn.innerText = " ❌";
   delBtn.addEventListener("click", deletePending);
-  comBtn.innerText = "OK";
+  comBtn.innerText = " ✅";
   comBtn.addEventListener("click", completePending);
   span.innerText = text;
-  li.appendChild(span);
-  li.appendChild(delBtn);
-  li.appendChild(comBtn);
+  li.append(span);
+  li.append(delBtn);
+  li.append(comBtn);
   li.id = newId;
-  pdList.appendChild(li);
+  pdList.append(li);
   const pdObj = {
     text: text,
     id: newId,
@@ -91,16 +91,16 @@ function paintFinished(text) {
   const span = document.createElement("span");
   const newId = "F" + (LSPList.length + 1);
 
-  delBtn.innerText = "x";
+  delBtn.innerText = " ❌";
   delBtn.addEventListener("click", deleteFinished);
-  backBtn.innerText = "undo";
+  backBtn.innerText = " ◀️";
   backBtn.addEventListener("click", backToDo);
   span.innerText = text;
-  li.appendChild(span);
-  li.appendChild(delBtn);
-  li.appendChild(backBtn);
+  li.append(span);
+  li.append(delBtn);
+  li.append(backBtn);
   li.id = newId;
-  fnList.appendChild(li);
+  fnList.append(li);
   const fnObj = {
     text: text,
     id: newId,

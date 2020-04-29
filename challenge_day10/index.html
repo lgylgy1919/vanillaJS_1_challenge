@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>challenge10</title>
+  </head>
+  <body>
+    <div class="outline">
+      <h1>Randon Number Game</h1>
+      <form onchange="getComNum()" oninput="getRange()">
+        <h3>Generate a number between 0 and 100</h3>
+        <div class="range">
+          <input type="range" min="0" max="200" id="range" />
+        </div>
+      </form>
+      <form class="input">
+        <label>Guess the number : </label>
+        <input type="number" id="userNum" />
+        <input type="button" value="play!" onclick="results(), getUserNum()" />
+      </form>
+      <div class="result">
+        <div class="contain">
+          <span class="span1"></span>
+          <span class="userNumContainer"></span>
+          <span class="span2"></span>
+          <span class="comNumContainer"></span>
+        </div>
+        <div class="winner"></div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
