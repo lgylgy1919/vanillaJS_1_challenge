@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="outline">
+      <div class="line1">
+        <div class="screen"></div>
+        <button onclick="clear()">C</button>
+      </div>
+      <div class="line2">
+        <button onclick="inputNum(this.innerText)">7</button>
+        <button onclick="inputNum(this.innerText)">8</button>
+        <button onclick="inputNum(this.innerText)">9</button>
+        <button class="operator" onclick="operation(this.innerText)">+</button>
+      </div>
+      <div class="line3">
+        <button onclick="inputNum(this.innerText)">4</button>
+        <button onclick="inputNum(this.innerText)">5</button>
+        <button onclick="inputNum(this.innerText)">6</button>
+        <button class="operator" onclick="operation(this.innerText)">-</button>
+      </div>
+      <div class="line4">
+        <button onclick="inputNum(this.innerText)">1</button>
+        <button onclick="inputNum(this.innerText)">2</button>
+        <button onclick="inputNum(this.innerText)">3</button>
+        <button class="operator" onclick="operation(this.innerText)">*</button>
+      </div>
+      <div class="line5">
+        <button id="btn0" onclick="inputNum(this.innerText)">0</button>
+        <button onclick="enter()">=</button>
+        <button class="operator" onclick="operation(this.innerText)">/</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
