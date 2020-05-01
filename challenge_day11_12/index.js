@@ -1,6 +1,7 @@
 let obj = "";
 let storage;
 let operator;
+let r;
 
 function save() {
   storage = Number(obj);
@@ -9,27 +10,44 @@ function inputNum(number) {
   const num = number;
   obj += num;
   document.querySelector(".screen").innerText = obj;
-  if (typeof storage === String) {
+  if (!operator) {
     save();
   } else {
     switch (operator) {
       case "+":
-        obj = Number(storage) + Number(obj);
+        if (r !== 1) {
+          storage = Number(storage) + Number(obj) - r;
+        } else {
+          storage = Number(storage) + Number(obj);
+        }
         break;
       case "-":
-        obj = Number(storage) - Number(obj);
+        if (r !== 1) {
+          storage = Number(storage) - Number(obj) + r;
+        } else {
+          storage = Number(storage) - Number(obj);
+        }
         break;
       case "*":
-        obj = Number(storage) * Number(obj);
+        if (r !== 1) {
+          storage = (Number(storage) * Number(obj)) / r;
+        } else {
+          storage = Number(storage) * Number(obj);
+        }
         break;
       case "/":
-        obj = Number(storage) / Number(obj);
+        if (r !== 1) {
+          storage = (Number(storage) / Number(obj)) * r;
+        } else {
+          storage = Number(storage) / Number(obj);
+        }
     }
-    storage = obj;
+    r = Number(obj);
   }
 }
 
 function operation(oper) {
+  document.querySelector(".screen").innerText = storage;
   const cal = oper;
   switch (cal) {
     case "+":
@@ -44,15 +62,18 @@ function operation(oper) {
     case "/":
       operator = "/";
   }
+  r = 1;
   obj = "";
 }
 
 function enter() {
+  obj = storage;
   document.querySelector(".screen").innerText = storage;
 }
 
-function clear() {
+function del() {
   obj = "";
-  storage = "";
-  document.querySelector(".screen").innerText = obj;
+  storage = 0;
+  operator = undefined;
+  document.querySelector(".screen").innerText = "0";
 }
